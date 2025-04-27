@@ -12,3 +12,8 @@ jobs:
         steps: #스텝 아래에는 -로 들여쓰기 해야 함.
             - name: Hello world 찍기
               run: echo "Hello World"
+
+            - name: 여러 명령어 문장 작성하기
+              run: |
+                echo "Good"
+                echo "Morning"
