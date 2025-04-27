@@ -1,0 +1,14 @@
+name: Github Actions 실행시켜보기
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    My-Deploy-Job: #작업의 아이디
+        runs-on: ubuntu-latest #작업이 실행될 러너
+
+        steps: #스텝 아래에는 -로 들여쓰기 해야 함.
+            - name: Hello world 찍기
+              run: echo "Hello World"
