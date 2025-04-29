@@ -1,0 +1,13 @@
+# nginx-service.yaml
+apiVersion: v1
+kind: Service # 만들려는 오브젝트 종류: 서비스
+metadata:
+  name: nginx-service # 이 서비스의 이름
+spec:
+  type: LoadBalancer # 서비스 타입: 외부 접속이 가능하도록 로드 밸런서를 요청 (Docker Desktop이 localhost로 잘 연결해줍니다)
+  selector:
+    app: nginx # 어떤 라벨이 붙은 파드에게 요청을 전달할지 선택 (⭐ 이전 Deployment의 Pod 라벨과 일치!)
+  ports:
+  - protocol: TCP
+    port: 80 # 이 서비스가 클러스터 내부에서 사용할 포트
+    targetPort: 80 # 서비스가 요청을 전달할 대상 컨테이너의 포트 (Nginx 컨테이너가 사용하는 80번 포트)
