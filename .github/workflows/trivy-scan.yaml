@@ -11,6 +11,9 @@ jobs:
   scan: # 'scan' 이라는 이름의 잡(job) 정의
     name: Scan Alpine Image # 잡의 표시 이름
     runs-on: ubuntu-latest # 실행될 환경 (가상머신 종류)
+    permissions:
+      contents: read      # actions/checkout 에 필요
+      security-events: write # SARIF 업로드 (github/codeql-action/upload-sarif) 에 필요
 
     steps: # 잡 내에서 실행될 단계들
       - name: Checkout code # 코드 체크아웃 (표준적인 단계)
